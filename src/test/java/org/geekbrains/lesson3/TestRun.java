@@ -12,16 +12,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 //import static org.junit.Assert.assertTrue;
 
 public class TestRun {
-    public static By loginField = By.id("user-name");
-    public static By passwordField = By.id("password");
-    public static By loginButton = By.id("login-button");
-    public static By menuButton = By.id("react-burger-menu-btn");
-    public static By logoutLink = By.id("logout_sidebar_link");
-    public static By errorMessageContainer = By.cssSelector("div.error-message-container");
-    public static By loginContainer = By.id("login_button_container");
-    public static By addBackpackButton = By.id("add-to-cart-sauce-labs-backpack");
-    public static By removeBackpackButton = By.id("remove-sauce-labs-backpack");
-    public static By shoppingCartBadge = By.cssSelector("span.shopping_cart_badge");
+//    public static By loginField = By.id("user-name");
+//    public static By passwordField = By.id("password");
+//    public static By loginButton = By.id("login-button");
+//    public static By menuButton = By.id("react-burger-menu-btn");
+//    public static By logoutLink = By.id("logout_sidebar_link");
+//    public static By errorMessageContainer = By.cssSelector("div.error-message-container");
+//    public static By loginContainer = By.id("login_button_container");
+//    public static By addBackpackButton = By.id("add-to-cart-sauce-labs-backpack");
+//    public static By removeBackpackButton = By.id("remove-sauce-labs-backpack");
+//    public static By shoppingCartBadge = By.cssSelector("span.shopping_cart_badge");
 
 
 //    public static void main(String[] args) {
