@@ -1,5 +1,6 @@
 package org.geekbrains.lesson6;
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -28,6 +29,7 @@ public class LoginPage extends AbstractPage {
         super(driver);
     }
 
+    @Step
     public void loginIn(){
         this.submit.click();
     }
@@ -42,20 +44,21 @@ public class LoginPage extends AbstractPage {
         return this;
     }
 
+    @Step
     public void assertSuccessLogin() {
         Assertions.assertTrue(getDriver().findElement(inventoryContainer).isDisplayed());
     }
 
+    @Step
     public void assertFailedLoginText() {
         assertEquals("Epic sadface: Username and password do not match any user in this service",
                 getDriver().findElement(By.cssSelector("div.error-message-container")).getText());
     }
 
+    @Step
     public void checkUnavailabilityInventoryPage() {
         getDriver().get("https://www.saucedemo.com/inventory.html");
         new WebDriverWait( getDriver(), 5).until(ExpectedConditions.presenceOfElementLocated(errorMessageContainer));
         assertEquals("Epic sadface: You can only access '/inventory.html' when you are logged in.",  getDriver().findElement(errorMessageContainer).getText());
     }
-
-
 }

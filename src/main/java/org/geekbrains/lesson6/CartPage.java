@@ -1,5 +1,6 @@
 package org.geekbrains.lesson6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,12 +17,14 @@ public class CartPage extends AbstractPage{
         super(driver);
     }
 
+    @Step
     public void openCart() {
         getDriver().findElement(shoppingCartLink).click();
         new WebDriverWait( getDriver(), 5).until(ExpectedConditions.presenceOfElementLocated(cartContentsContainer));
         new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOfElementLocated(checkoutButton));
     }
 
+    @Step
     public void checkGoodCountInCart(int count) {
         new WebDriverWait( getDriver(), 10).until(ExpectedConditions.numberOfElementsToBe(cartItem, count));
     }

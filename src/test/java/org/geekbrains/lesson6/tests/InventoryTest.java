@@ -4,10 +4,12 @@ package org.geekbrains.lesson6.tests;
 import org.geekbrains.lesson6.CartPage;
 import org.geekbrains.lesson6.InventoryPage;
 import org.geekbrains.lesson6.LoginPage;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.geekbrains.lesson6.InventoryPage.*;
 
+@DisplayName("Тесты на странице inventory")
 public class InventoryTest extends AbstractTest {
 
     @Test

@@ -1,6 +1,7 @@
 package org.geekbrains.lesson6;
 
 
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -10,7 +11,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.geekbrains.lesson6.CartPage.*;
 import static org.geekbrains.lesson6.LoginPage.loginContainer;
 
 public class InventoryPage extends AbstractPage{
@@ -50,12 +50,14 @@ public class InventoryPage extends AbstractPage{
         super(driver);
     }
 
+    @Step
     public void logOut(){
         this.menuButton.click();
         this.logoutButton.click();
         new WebDriverWait( getDriver(), 5).until(ExpectedConditions.presenceOfElementLocated(loginContainer));
     }
 
+    @Step
     public void addToCart(By addButton) {
         int presentCount = goodsCount();
         new WebDriverWait(getDriver(), 5).until(ExpectedConditions.visibilityOfElementLocated(addButton));
@@ -64,6 +66,7 @@ public class InventoryPage extends AbstractPage{
         new WebDriverWait(getDriver(), 5).until(ExpectedConditions.textToBePresentInElementLocated(shoppingCartBadge, String.valueOf((presentCount + 1))));
     }
 
+    @Step
     public void removeFromCart(By removeButton) {
         int presentCount = goodsCount();
         getDriver().findElement(removeButton).click();
@@ -76,10 +79,12 @@ public class InventoryPage extends AbstractPage{
         }
     }
 
+    @Step
     public void goToGoodsCard(By id) {
         getDriver().findElement(id).click();
     }
 
+    @Step
     public int goodsCount() {
         try {
             return Integer.parseInt(getDriver().findElement(shoppingCartBadge).getText());
@@ -88,6 +93,7 @@ public class InventoryPage extends AbstractPage{
         }
     }
 
+    @Step
     public void assertHeaderContent() {
         Assertions.assertTrue(getDriver().findElement(headerLogo).isDisplayed());
         Assertions.assertTrue(getDriver().findElement(shoppingCartLink).isDisplayed());
@@ -96,6 +102,7 @@ public class InventoryPage extends AbstractPage{
         Assertions.assertTrue(getDriver().findElement(productSortContainer).isDisplayed());
     }
 
+    @Step
     public void assertFooterContent() {
         Assertions.assertTrue(getDriver().findElement(footerRobot).isDisplayed());
         Assertions.assertEquals("© 2022 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy", getDriver().findElement(privacyPoliticTittle).getText());
